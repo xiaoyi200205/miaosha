@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <context id="MySqlTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!--是否去除自动生成的注释 true:是; false:否-->
+            <property name="suppressAllComments" value="false" />
+        </commentGenerator>
+        <!--数据库连接信息：驱动类、链接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/miaosha"
+                        userId="root" password="root">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <!--类型解析器-->
+            <!-- 默认false，把jdbc decimal 和 numeric 类型解析为integer -->
+            <!-- true，把jdbc decimal 和 numeric 类型解析为java.math.bigdecimal-->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 生成DataObject类的包名和位置-->
+        <javaModelGenerator targetPackage="com.miaoshaobject.dataobject"
+                            targetProject="src/main/java">
+            <!-- 是否让schema作为包后缀-->
+            <property name="enableSubPackages" value="true" />
+            <!-- 从数据库返回的值被清理前后的空格-->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 生成映射文件xml的包名和位置-->
+        <sqlMapGenerator targetPackage="mapping"
+                         targetProject="src/main/resources">
+            <!-- 是否让schema作为包后缀-->
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!-- 生成Dao接口的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.miaoshaobject.dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 用于自动生成代码的数据库表；生成哪些表-->
+<!--        <table tableName="user_info" domainObjectName="UserDo" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="user_password" domainObjectName="UserPasswordDo" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="item" domainObjectName="ItemDO" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false"></table>-->
+<!--        <table tableName="item_stock" domainObjectName="ItemStockDO" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false"></table>-->
+     <!--   <table tableName="oder_info" domainObjectName="OrderDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>   -->
+        <table tableName="sequence_info" domainObjectName="SequenceDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>

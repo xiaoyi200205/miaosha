@@ -1,0 +1,37 @@
+#server:
+#  port: 8080
+#  tomcat:
+#    accept-count: 1000
+#    threads:
+#      max: 800
+#      min-spare: 100
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+
+spring:
+  datasource:
+    name: miaosha
+    # 使用druid的数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/miaosha
+    username: root
+    password: root
+    # 配置springboot对redis的依赖
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 10
+    jedis:
+      pool:
+        max-active: 50
+        min-idle: 20
+  #设置jedis连接池
+#server:
+#  tomcat:
+#    # 设置30秒内没有请求服务则断开连接
+#    keep-alive-timeout: 30000
+#    # 当客户端发送请求超过10000个断开连接
+#    max-keep-alive-requests: 10000
+
